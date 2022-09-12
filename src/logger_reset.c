@@ -1,10 +1,10 @@
 /*
-** EPITECH PROJECT, 2022
+** CLlogger project
 ** Clogger [WSL : Ubuntu]
 ** File description:
 ** logger_reset
 */
-#include "clogger.h"
+#include "cllogger.h"
 
 int logger_reset(log_type type)
 {

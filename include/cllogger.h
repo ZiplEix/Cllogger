@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** CLlogger project
 ** Clogger [WSL : Ubuntu]
 ** File description:
 ** clogger

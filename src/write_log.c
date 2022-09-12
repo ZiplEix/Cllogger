@@ -1,10 +1,10 @@
 /*
-** EPITECH PROJECT, 2022
+** CLlogger project
 ** Clogger [WSL : Ubuntu]
 ** File description:
 ** write_log
 */
-#include "clogger.h"
+#include "cllogger.h"
 
 char *get_actual_time(void)
 {
@@ -74,5 +74,6 @@ int write_log(char *file_name, log_type log_type, char *log)
 
     // display in the console
     display_log(now, type, log);
+    free(now);
     return 0;
 }

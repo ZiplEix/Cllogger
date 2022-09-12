@@ -1,10 +1,10 @@
 /*
-** EPITECH PROJECT, 2022
+** CLlogger project
 ** Clogger [WSL : Ubuntu]
 ** File description:
 ** clogger
 */
-#include "clogger.h"
+#include "cllogger.h"
 
 int logger(char *log)
 {
