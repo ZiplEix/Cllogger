@@ -1,6 +1,6 @@
 /*
 ** CLlogger project
-** Clogger [WSL : Ubuntu]
+** a lite logger for C project
 ** File description:
 ** main
 */

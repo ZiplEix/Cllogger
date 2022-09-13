@@ -1,6 +1,6 @@
 /*
 ** CLlogger project
-** Clogger [WSL : Ubuntu]
+** a lite logger for C project
 ** File description:
 ** logger_reset
 */
@@ -9,7 +9,7 @@
 int logger_reset(log_type type)
 {
     if (access("log/", F_OK) == -1) {
-        mkdir("log/", 0777);
+        return 0;
     }
     switch (type) {
         case INFO:
@@ -36,4 +36,5 @@ int logger_reset(log_type type)
             remove("log/");
             break;
     }
+    return 0;
 }

@@ -1,6 +1,6 @@
 /*
 ** CLlogger project
-** Clogger [WSL : Ubuntu]
+** a lite logger for C project
 ** File description:
 ** clogger
 */
@@ -30,7 +30,7 @@
     int logger_warning(char *log);
     int logger_error(char *log);
     int logger_debug(char *log);
-    int logger_log(char *log, char *type);
+    // int logger_log(char *log, char *type);
     int logger_reset(log_type type);
 
 #endif /* !CLOGGER_H_ */

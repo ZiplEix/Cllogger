@@ -1,6 +1,6 @@
 /*
 ** CLlogger project
-** Clogger [WSL : Ubuntu]
+** a lite logger for C project
 ** File description:
 ** write_log
 */
@@ -59,6 +59,7 @@ int write_log(char *file_name, log_type log_type, char *log)
     char *now = get_actual_time();
     char *type = define_type(log_type);
 
+    // display in the specific log file
     FILE *file = fopen(file_name, "a");
     if (file == NULL)
         return 84;
@@ -66,7 +67,7 @@ int write_log(char *file_name, log_type log_type, char *log)
     fclose(file);
 
     // display in the generic log file
-    file = fopen("log/log", "a");
+    file = fopen("log/log.log", "a");
     if (file == NULL)
         return 84;
     fprintf(file, "%s : %s %s %s %s\n", now, "[", type, "]", log);
@@ -74,6 +75,7 @@ int write_log(char *file_name, log_type log_type, char *log)
 
     // display in the console
     display_log(now, type, log);
+
     free(now);
     return 0;
 }
