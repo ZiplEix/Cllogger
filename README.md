@@ -1,2 +1,2 @@
 # Clogger
-A logger lib in C
+A lite logger lib in C
