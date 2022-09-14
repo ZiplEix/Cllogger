@@ -8,7 +8,7 @@
 
 int main(int argc, char const *argv[])
 {
-    // another little comment to test github action
+    // and again another little comment to test github action
     logger("une info");
     logger_warning("un warning");
     logger_error("une erreur");
