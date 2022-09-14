@@ -1,0 +1,48 @@
+# a github action to test the compilation of a C project
+# and run the tests
+#
+# This action is triggered by a push on the master branch
+# and by a pull request on the master branch
+#
+# The action is composed of 3 jobs:
+# - build: compile the project
+# - test: run the tests (NOT IMPLEMENTED)
+# - coverage: run the tests and generate a coverage report (NOT IMPLEMENTED)
+#
+# The build and test jobs are run on ubuntu-latest
+# The coverage job is run on ubuntu-18.04
+#
+# The build job uses the gcc compiler
+# The test and coverage jobs use the clang compiler
+#
+# The build job uses the make build system
+## The test and coverage jobs use the cmake build system
+#
+## The test job uses the ctest test runner
+## The coverage job uses the lcov coverage tool
+#
+## The coverage job uses the codecov.io service to upload the
+## coverage report
+#
+
+name: Compile and test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install gcc
+        run: sudo apt-get install gcc
+      - name: Install make
+        run: sudo apt-get install make
+      - name: Compile
+        run: make
