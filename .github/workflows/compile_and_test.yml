@@ -40,9 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install gcc
-        run: sudo apt-get install gcc
-      - name: Install make
-        run: sudo apt-get install make
-      - name: Compile
+      - name: "Compile with make"
         run: make
+        timeout-minutes: 2
+      - name: "clean useless files with make clean"
+        run: make clean
