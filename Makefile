@@ -8,6 +8,8 @@
 #### PROJECT SETTINGS ####
 # The name of the executable to be created
 BIN_NAME := clogger
+# The name of the library to be created
+LIB_NAME := libcllogger.a
 # Compiler used
 CC ?= gcc
 # Extension of source files used in the project
@@ -183,14 +185,20 @@ dirs:
 # Installs to the set path
 .PHONY: install
 install:
-	@echo "Installing to $(DESTDIR)$(INSTALL_PREFIX)/bin"
-	@$(INSTALL_PROGRAM) $(BIN_PATH)/$(BIN_NAME) $(DESTDIR)$(INSTALL_PREFIX)/bin
+	@echo "Installing cllogger.h to $(DESTDIR)$(INSTALL_PREFIX)/include"
+	@mkdir -p cllogger/include
+	@cp -r include/cllogger.h cllogger/include
+	@sudo cp -r cllogger/include/cllogger.h $(DESTDIR)$(INSTALL_PREFIX)/include
+	@echo "Compiling $(LIB_NAME)"
+	@mkdir -p cllogger/src
+	@gcc -c $(wildcard src/*.c) -g3
+	@ar -rc cllogger/src/$(LIB_NAME) build/release/src/cllogger.o build/release/src/logger_reset.o build/release/src/write_log.o
+	@rm *.o
 
 # Uninstalls the program
 .PHONY: uninstall
 uninstall:
-	@echo "Removing $(DESTDIR)$(INSTALL_PREFIX)/bin/$(BIN_NAME)"
-	@$(RM) $(DESTDIR)$(INSTALL_PREFIX)/bin/$(BIN_NAME)
+	@sudo rm -rf $(DESTDIR)$(INSTALL_PREFIX)/lib/cllogger
 
 .PHONY: clean
 clean:
@@ -204,6 +212,7 @@ fclean: clean
 	@$(RM) -r bin
 	@echo "Deleting $(BIN_NAME) symlink"
 	@$(RM) $(BIN_NAME)
+	@$(RM) -r cllogger
 
 # Main rule, checks the executable and symlinks to the output
 all: $(BIN_PATH)/$(BIN_NAME)
