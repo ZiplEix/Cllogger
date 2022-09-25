@@ -29,20 +29,15 @@ name: Compile and test
 
 on:
   push:
-    branches:
-      - master
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install gcc
-        run: sudo apt-get install gcc
-      - name: Install make
-        run: sudo apt-get install make
-      - name: Compile
-        run: make
+      - name: "Compile with make"
+        run: sh install.sh
+        timeout-minutes: 2

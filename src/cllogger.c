@@ -12,6 +12,7 @@ int logger(char *log)
         mkdir("log/", 0777);
     }
     write_log("log/info.log", INFO, log);
+    return 0;
 }
 
 int logger_warning(char *log)
@@ -20,6 +21,7 @@ int logger_warning(char *log)
         mkdir("log/", 0777);
     }
     write_log("log/warning.log", WARNING, log);
+    return 0;
 }
 
 int logger_error(char *log)
@@ -28,6 +30,7 @@ int logger_error(char *log)
         mkdir("log/", 0777);
     }
     write_log("log/error.log", ERROR, log);
+    return 0;
 }
 
 int logger_debug(char *log)
@@ -36,16 +39,5 @@ int logger_debug(char *log)
         mkdir("log/", 0777);
     }
     write_log("log/debug.log", DEBUG, log);
+    return 0;
 }
-
-// int logger_log(char *log, char *type)
-// {
-//     if (access("log/", F_OK) == -1) {
-//         mkdir("log/", 0777);
-//     }
-//     char *path = malloc(sizeof(char) * (strlen("log/") + strlen(type) + 1));
-//     strcpy(path, "log/");
-//     strcat(path, type);
-//     write_log(path, LOG, log);
-//     free(path);
-// }
