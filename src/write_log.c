@@ -52,6 +52,7 @@ int display_log(char *now, char *type, char *log)
     }
     printf("%s %s %s %s\n", "[", type, "]", log);
     printf("\e[0m");
+    return 0;
 }
 
 int write_log(char *file_name, log_type log_type, char *log)
