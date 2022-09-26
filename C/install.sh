@@ -6,8 +6,8 @@ cp -r include/sulogger.h sulogger/include
 echo "Create src folder ..."
 mkdir -p sulogger/src
 echo "Compiling source files ..."
-gcc -c src/*.c
+gcc -c src/*.c -I include
 echo "Compiling lib ..."
-ar -rc sulogger/src/sulogger.a sulogger.o logger_reset.o write_log.o
+ar -rc sulogger/src/libsulogger.a sulogger.o logger_reset.o write_log.o
 echo "Delete useless file ..."
 rm *.o
