@@ -14,9 +14,9 @@ Then, check the installation methode and exemples on the langage you choose.
 ## supported langages
 
 - Imperative
-   - [C]()
+   - [C](https://github.com/ZiplEix/SULogger/tree/main/C)
 - Object oriented
-   - [JS]()
+   - [JS](https://github.com/ZiplEix/SULogger/tree/main/JS)
 - Fonctional
    - NONE
 
