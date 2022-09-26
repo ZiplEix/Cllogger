@@ -1,10 +1,10 @@
 /*
-** CLlogger project
+** SULogger project
 ** a lite logger for C project
 ** File description:
 ** clogger
 */
-#include "cllogger.h"
+#include "sulogger.h"
 
 int logger(char *log)
 {
