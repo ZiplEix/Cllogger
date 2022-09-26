@@ -1,10 +1,10 @@
 /*
-** CLlogger project
+** SUlogger project
 ** a lite logger for C project
 ** File description:
 ** write_log
 */
-#include "cllogger.h"
+#include "csulogger.h"
 
 char *get_actual_time(void)
 {
