@@ -25,9 +25,9 @@ Then, check the installation methode and exemples on the langage you choose.
 
 Contributions are always welcome!
 
-See [`contributing.md`](https://github.com/ZiplEix/logger/blob/doc/CONTRIBUTING.md) for ways to get started.
+See [`contributing.md`](https://github.com/ZiplEix/SULogger/tree/main/CONTRIBUTING.md) for ways to get started.
 
-Please adhere to this project's [`code of conduct`](https://github.com/ZiplEix/logger/blob/main/CODE_OF_CONDUCT.md).
+Please adhere to this project's [`code of conduct`](https://github.com/ZiplEix/SULogger/tree/main/CODE_OF_CONDUCT.md).
 
 
 ## Authors
