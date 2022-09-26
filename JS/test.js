@@ -1,6 +1,6 @@
-const Logger = require('./index')
+const Logger = require('./logger')
 
-Logger.log('Hello World', true);
-Logger.error('Hello World', true);
-Logger.warning('Hello World', true);
-Logger.debug('Hello World', true);
+Logger.log('a log message', true);
+Logger.debug('a debug message', true);
+Logger.warning('a warning message', true);
+Logger.error('an error message', true);
