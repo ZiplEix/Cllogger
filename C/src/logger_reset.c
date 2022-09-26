@@ -1,10 +1,10 @@
 /*
-** CLlogger project
+** SUlogger project
 ** a lite logger for C project
 ** File description:
 ** logger_reset
 */
-#include "cllogger.h"
+#include "sulogger.h"
 
 int logger_reset(log_type type)
 {
