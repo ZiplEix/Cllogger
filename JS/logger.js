@@ -12,6 +12,18 @@ function setDate(date) {
 
 class ClassLogger {
 
+    #color = {
+        black: '\x1b[30m',
+        red: '\x1b[31m',
+        green: '\x1b[32m',
+        yellow: '\x1b[33m',
+        blue: '\x1b[34m',
+        magenta: '\x1b[35m',
+        cyan: '\x1b[36m',
+        white: '\x1b[37m',
+        reset: '\x1b[0m'
+    }
+
     #writeLog(logMsg, type = 'log') {
         if (fs.existsSync('log/log.log')) {
             fs.appendFile('log/log.log', logMsg, err => {
@@ -51,48 +63,34 @@ class ClassLogger {
         }
     }
 
-    #infoPrefix = '[INFO] ';
-    log(message, inConsole = false) {
+    #doLog(message, inConsole, type, color, prefix) {
         var date = setDate(new Date());
-        const logMsg = date + " | " + this.#infoPrefix + message + '\n';
-        this.#writeLog(logMsg, 'info');
+        const logMsg = date + " | " + prefix + message + '\n';
+        this.#writeLog(logMsg, type);
         if (inConsole) {
-            var displayMsg = '\x1b[2m' + date + " | " + '\x1b[0' + '\x1b[37m' + this.#infoPrefix + '\x1b[0m' + message;
+            var displayMsg = '\x1b[2m' + date + " | " + this.#color.reset + color + prefix + this.#color.reset + message;
             console.log(displayMsg);
         }
+    }
+
+    #infoPrefix = '[INFO] ';
+    log(message, inConsole = false) {
+        this.#doLog(message, inConsole, 'info', this.#color.white, this.#infoPrefix);
     }
 
     #errorPrefix = '[ERROR] ';
     error(message, inConsole = false) {
-        var date = setDate(new Date());
-        const logMsg = date + " | " + this.#errorPrefix + message + '\n';
-        this.#writeLog(logMsg, 'error');
-        if (inConsole) {
-            var displayMsg = '\x1b[2m' + date + " | " + '\x1b[0' + '\x1b[91m' + this.#errorPrefix + '\x1b[0m' + message;
-            console.log(displayMsg);
-        }
+        this.#doLog(message, inConsole, 'error', this.#color.red, this.#errorPrefix);
     }
 
     #warnPrefix = '[WARNING] ';
     warning(message, inConsole = false) {
-        var date = setDate(new Date());
-        const logMsg = date + " | " + this.#warnPrefix + message + '\n';
-        this.#writeLog(logMsg, 'warning');
-        if (inConsole) {
-            var displayMsg = '\x1b[2m' + date + " | " + '\x1b[0' + '\x1b[33m' + this.#warnPrefix + '\x1b[0m' + message;
-            console.log(displayMsg);
-        }
+        this.#doLog(message, inConsole, 'warning', this.#color.yellow, this.#warnPrefix);
     }
 
     #debugPrefix = '[DEBUG] ';
     debug(message, inConsole = false) {
-        var date = setDate(new Date());
-        const logMsg = date + " | " + this.#debugPrefix + message + '\n';
-        this.#writeLog(logMsg, 'debug');
-        if (inConsole) {
-            var displayMsg = '\x1b[2m' + date + " | " + '\x1b[0' + '\x1b[32m' + this.#debugPrefix + '\x1b[0m' + message;
-            console.log(displayMsg);
-        }
+        this.#doLog(message, inConsole, 'debug', this.#color.green, this.#debugPrefix);
     }
 }
 
